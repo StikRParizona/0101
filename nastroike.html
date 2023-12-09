@@ -1,17 +1,87 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script>
-
-        </script>
         <meta charset="utf-8">
         <title>переходник в настройки</title>
         <style>
- 
+ .tab {
+    overflow: hidden;
+    border: 1px solid #4CAF50;
+    background-color:rgba(67, 154, 179, 0.8);
+}
+
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+
+.tab button:hover {
+    background-color: #FFEB3B;
+}
+
+
+.tab button.active {
+    background-color: #4CAF50;
+  color:white;
+}
+
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #4CAF50;
+    border-top: none;
+}
 
         </style>
+
+        <script>
+            function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+        </script>
     </head>
     <body>
-        <a href="nastroike.html" class="nastroike"><img class="nastroike001" src="https://cdn-icons.flaticon.com/svg/3917/3917762.svg?token=exp=1701967649~hmac=8c33a8c6f7fd788c828eaf836a243d3b" width="25" ></a><br>
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Москва')">Москва</button>
+            <button class="tablinks" onclick="openCity(event, 'Берлин')">Берлин</button>
+            <button class="tablinks" onclick="openCity(event, 'Пекин')">Пекин</button>
+          </div>
+          
+          <div id="Москва" class="tabcontent">
+            <h3>Москва</h3>
+            <p>Москва это столица России.</p>
+          </div>
+          
+          <div id="Берлин" class="tabcontent">
+            <h3>Берлин</h3>
+            <p>Берлин это столица Германии.</p> 
+          </div>
+          
+          <div id="Пекин" class="tabcontent">
+            <h3>Пекин</h3>
+            <p>Пекин это столица Китая.</p>
+          </div>
+          
     </body>
 </html>
